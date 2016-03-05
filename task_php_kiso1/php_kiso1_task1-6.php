@@ -27,17 +27,21 @@
 <!-- 課題4 -->
 <h2>課題4<span style="font-weight: normal; font-size: 20px;"> 定数と変数を宣言し、それぞれに数値を入れて四則演算を行ってください。</span></h2>
 <?php
+
+  // 定数NUMを定義
   const NUM = 10;
 
-  $ansAdd = NUM + NUM;
-  $ansSubtract = NUM - NUM;
-  $ansMultiply = NUM * NUM;
-  $ansDivide = NUM / NUM;
+  // 計算の変数
+  $ansAdd = NUM + NUM;        // 足し算
+  $ansSubtract = NUM - NUM;   // 引き算
+  $ansMultiply = NUM * NUM;   // 掛け算
+  $ansDivide = NUM / NUM;     // 割り算
 
-  $addition = NUM.' + '.NUM.' = '.$ansAdd.'<br>'.'<br>';
-  $subtraction = NUM.' - '.NUM.' = '.$ansSubtract.'<br>'.'<br>';
-  $multiplication = NUM.' × '.NUM.' = '.$ansMultiply.'<br>'.'<br>';
-  $division = NUM.' ÷ '.NUM.' = '.$ansDivide;
+  // 計算の答え
+  $addition = NUM.' + '.NUM.' = '.$ansAdd;              // 足し算答え
+  $subtraction = NUM.' - '.NUM.' = '.$ansSubtract;      // 引き算答え
+  $multiplication = NUM.' × '.NUM.' = '.$ansMultiply;   // 掛け算答え
+  $division = NUM.' ÷ '.NUM.' = '.$ansDivide;           // 割り算答え
 
   echo '※課題5で表示';
 
@@ -49,9 +53,9 @@
 <h2>課題5<span style="font-weight: normal; font-size: 20px;"> 四則演算の結果をそれぞれ表示してください。</span></h2>
 <?php
 
-  echo $addition;
-  echo $subtraction;
-  echo $multiplication;
+  echo $addition.'<br>'.'<br>';
+  echo $subtraction.'<br>'.'<br>';
+  echo $multiplication.'<br>'.'<br>';
   echo $division;
 
 ?>
@@ -65,9 +69,10 @@
 ⇒値が 'a' なら「文字です！」<br>
 ⇒それ以外なら「その他です！」</span></h2>
 <?php
-
+  // 内容の変数を定義
   $content = 2;
 
+  // $contentの内容によって表示を分岐
   if ($content == 1) {
     echo '1です！';
   } elseif ($content == 2) {
