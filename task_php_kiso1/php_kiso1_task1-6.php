@@ -31,17 +31,17 @@
   // 定数NUMを定義
   const NUM = 10;
 
-  // 計算の変数
+  // 各計算の答えの変数
   $ansAdd = NUM + NUM;        // 足し算
   $ansSubtract = NUM - NUM;   // 引き算
   $ansMultiply = NUM * NUM;   // 掛け算
   $ansDivide = NUM / NUM;     // 割り算
 
-  // 計算の答え
-  $addition = NUM.' + '.NUM.' = '.$ansAdd;              // 足し算答え
-  $subtraction = NUM.' - '.NUM.' = '.$ansSubtract;      // 引き算答え
-  $multiplication = NUM.' × '.NUM.' = '.$ansMultiply;   // 掛け算答え
-  $division = NUM.' ÷ '.NUM.' = '.$ansDivide;           // 割り算答え
+  // 計算の式と答えの変数
+  $addition = NUM.' + '.NUM.' = '.$ansAdd;              // 足し算
+  $subtraction = NUM.' - '.NUM.' = '.$ansSubtract;      // 引き算
+  $multiplication = NUM.' × '.NUM.' = '.$ansMultiply;   // 掛け算
+  $division = NUM.' ÷ '.NUM.' = '.$ansDivide;           // 割り算
 
   echo '※課題5で表示';
 
@@ -53,10 +53,11 @@
 <h2>課題5<span style="font-weight: normal; font-size: 20px;"> 四則演算の結果をそれぞれ表示してください。</span></h2>
 <?php
 
-  echo $addition.'<br>'.'<br>';
-  echo $subtraction.'<br>'.'<br>';
-  echo $multiplication.'<br>'.'<br>';
-  echo $division;
+  // 計算の結果を表示
+  echo $addition.'<br>'.'<br>';         // 足し算
+  echo $subtraction.'<br>'.'<br>';      // 引き算
+  echo $multiplication.'<br>'.'<br>';   // 掛け算
+  echo $division;                       // 割り算
 
 ?>
 <br><br><br><br>
@@ -86,9 +87,6 @@
 ?>
 <br><br><br><br>
 <hr>
-
-
-
 
 
 
