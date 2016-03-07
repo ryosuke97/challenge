@@ -38,7 +38,7 @@
 
   switch ($str) {
     case 'A':
-      echo '日本語';
+      echo '英語';
       break;
     case 'あ':
       echo '日本語';
