@@ -18,8 +18,8 @@
 <?php
 
   // クエリストリンクから渡された数値を受け取る変数
-  // $originNum = $_GET['num'];
-  $originNum = 33;
+  $originNum = $_GET['num'];
+  //$originNum = 33;
   $num = $originNum;
 
 
