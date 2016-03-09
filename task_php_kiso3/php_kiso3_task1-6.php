@@ -31,6 +31,7 @@
 <p style="font-weight: bold; font-size: 20px;">引数として数値を受け取り、その値が奇数か偶数か判別＆表示する処理を関数として制作し、適当な数値に対して奇数・偶数の判別を行ってください</p>
 <?php
   $numX = 3;
+  // 偶数か奇数か判別
   function discriminateNum($num) {
     if ($num % 2 == 0) {
       echo $num . 'は偶数です。';
@@ -114,7 +115,7 @@
 名前による検索プログラムを実装する。3人分のプロフィール(項目は課題5参照)をあらかじめ定義しておく。引き数にそれらのプロフィールと文字列をとり、戻り値は1人分のプロフィール情報を返却する。引き数の文字が名前に含まれる(部分一致)プロフィール情報(複数名合致する場合は最初のプロフィールとする)を戻り値として返却する。それ以降などは課題5と同じ扱いに
 </p>
 <?php
-
+  // プロフィール情報を返す関数
   function search($person){
     // 登録するデータ
     // 登録者1
@@ -137,7 +138,7 @@
     $bd3 = '1990/03/03';
     $address3 = '沖縄';
     $person3 = array('id'=>$id3, '名前'=>$name3, '生年月日'=>$bd3, '住所'=>$address3);
-
+    // 名前を検索する
     if (strstr($name1, $person)) {
       return $person1;
     } elseif (strstr($name2, $person)) {
@@ -149,8 +150,8 @@
       return null;
     }
   }
-
-  $searchPerson = 'た';
+  $searchPerson = 'た';// 検索する名前
+  // 検索が一致したときはプロフィール情報を表示
   if (search($searchPerson) != null) {
     foreach(search($searchPerson) as $key => $value){
     echo '【' . $key . '】' . '-> ' . $value . '<br>';
