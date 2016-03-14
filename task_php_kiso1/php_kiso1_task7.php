@@ -55,7 +55,7 @@
   // 購入総額に応じたポイントの付与と表示
   if ($totalPrice >= 5000) {
     echo '今回のポイントは'.$pointRate5.'ポイントです。';
-  } elseif ($totalPrice >= 3000 && $totalPrice < 5000) {
+  } elseif ($totalPrice >= 3000) {
     echo '今回のポイントは'.$pointRate4.'ポイントです。';
   } else {
     echo '今回のポイントは'.$pointRateNormal.'ポイントです。';
