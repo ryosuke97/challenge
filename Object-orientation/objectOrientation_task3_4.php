@@ -47,7 +47,9 @@
       $this->age = '';
     }
   }
+  // clearVariableクラスのインスタンス生成
   $clear = new clearVariable();
+  // 変数の中身のクリアを実行
   $clear -> clear();
   echo '消去結果→【';
   $clear->displaySelfIntroduction();
