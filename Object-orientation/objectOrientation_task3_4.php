@@ -20,7 +20,7 @@
   class selfIntroduction {
     public $name;
     public $age;
-    // 名前と連嶺情報をセットする
+    // 名前と年齢情報をセット
     public function setSelfIntroduction($n, $a){
       $this->name = $n;
       $this->age = $a;
@@ -38,8 +38,7 @@
   $yamano -> displaySelfIntroduction();
   ?>
   <!-- 課題4 -->
-  <?php 
-
+  <?php
   // 変数の中身をクリアするクラスの生成
   class clearVariable extends selfIntroduction {
     public function clear(){
@@ -54,7 +53,6 @@
   echo '消去結果→【';
   $clear->displaySelfIntroduction();
   echo '】';
-
    ?>
 </body>
 </html>
