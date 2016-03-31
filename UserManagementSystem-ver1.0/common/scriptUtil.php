@@ -7,3 +7,9 @@ date_default_timezone_set('Asia/Tokyo');
   function return_top(){
       return "<a href='".ROOT_URL."'>トップへ戻る</a>";
   }
+
+// トップページへ飛ぶ
+function jump_to_top(){
+  header('Location:http://localhost/develop/UserManagementSystem-ver1.0/app/index.php');
+}
+?>

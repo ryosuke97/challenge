@@ -27,7 +27,6 @@ session_start();
               $display_type = 'その他';
               break;
     }
-
     // セッション情報に格納
     $_SESSION['name']     = $post_name;
     $_SESSION['birthday'] = $post_birthday;
