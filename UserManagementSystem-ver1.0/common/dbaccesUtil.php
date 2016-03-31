@@ -39,4 +39,4 @@ try {
 }
 
 //接続オブジェクトを初期化することでDB接続を切断
-$insert_db=null;
+$insert_db = null;

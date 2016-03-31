@@ -15,18 +15,6 @@ session_start();
     $post_tell     = $_POST['tell'];
     $post_comment  = $_POST['comment'];
 
-    // 登録確認画面で数値でなく種別名で表示されるように変数に格納する
-    switch ($_POST['type']) {
-          case 1:
-              $display_type = 'エンジニア';
-              break;
-          case 2:
-              $display_type = '営業';
-              break;
-          case 3:
-              $display_type = 'その他';
-              break;
-    }
     // セッション情報に格納
     $_SESSION['name']     = $post_name;
     $_SESSION['birthday'] = $post_birthday;
@@ -36,6 +24,9 @@ session_start();
     $_SESSION['year']     = $post_year;
     $_SESSION['month']    = $post_month;
     $_SESSION['day']      = $post_day;
+
+    // 登録結果画面で数値でなく種別名で表示されるように変数に格納する
+    $display_type = change_num_to_section();
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -52,9 +43,9 @@ session_start();
     ?>
 
         <h1>登録確認画面</h1><br>
-        名前:<?php echo $post_name;?><br>
+        名前:<?php    echo $post_name;?><br>
         生年月日:<?php echo $post_birthday;?><br>
-        種別:<?php echo $display_type?><br>
+        種別:<?php    echo $display_type?><br>
         電話番号:<?php echo $post_tell;?><br>
         自己紹介:<?php echo $post_comment;?><br>
 

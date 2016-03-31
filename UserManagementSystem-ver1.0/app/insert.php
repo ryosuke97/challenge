@@ -49,7 +49,7 @@ $rec_comment = isset($_SESSION['comment']) ? $_SESSION['comment'] : null;
             }
          ?>
         <?php
-        for($i = 1; $i<=12; $i++){?>
+        for($i=1; $i<=12; $i++){?>
         <option value="<?php echo $i;?>"><?php echo $i;?></option>
         <?php } ;?>
     </select>月
@@ -63,7 +63,7 @@ $rec_comment = isset($_SESSION['comment']) ? $_SESSION['comment'] : null;
             }
          ?>
         <?php
-            for($i = 1; $i<=31; $i++){ ?>
+            for($i=1; $i<=31; $i++){ ?>
             <option value="<?php echo $i; ?>"><?php echo $i;?></option>
         <?php } ?>
     </select>日
