@@ -28,7 +28,7 @@ if ($mode != "UD_RESULT") {
     $ud_tell     = bind_p2s('ud_tell');
     $ud_comment  = bind_p2s('ud_comment');
 
-    // 「月」「日」を2桁に設定して格納
+    // date型にするために1桁の月日を2桁にフォーマットしてから格納
     $ud_birthday = $ud_year.'-'.sprintf('%02d',$ud_month).'-'.sprintf('%02d',$ud_day);
 
     ?>
@@ -49,7 +49,7 @@ if ($mode != "UD_RESULT") {
                             'ud_type' => $ud_type,
                             'ud_tell' => $ud_tell,
                             'ud_comment' => $ud_comment);
-
+    // 配列$ud_confirm_valuesに未入力がないかチェックする
     if(in_array(null,$ud_confirm_values, true)){
         ?>
         <h1>入力項目が不完全です</h1><br>
@@ -80,9 +80,6 @@ if ($mode != "UD_RESULT") {
                 if($key == 'ud_comment'){
                     echo '自己紹介';
                 }
-                //if($key == 'day_chk'){
-                    //break;
-                //}
                 echo 'が未記入です<br>';
             }
         }
@@ -94,10 +91,10 @@ if ($mode != "UD_RESULT") {
             <input type="submit" name="no" value="登録画面に戻る">
         </form><br><br>
         <?php
-    }
-    else{
+    }else{// 未入力項目がなければレコードの上書きをする
+        // 上書きした値を連想配列として受け取り格納する
         $result = update_profile($id, $ud_name, $ud_birthday, $ud_type, $ud_tell, $ud_comment);
-        //エラーが発生しなければ表示を行う
+        //エラーがなければ更新した値を表示する
         if(!isset($result)){
             ?>
             <h1>更新確認</h1>
@@ -121,8 +118,8 @@ if ($mode != "UD_RESULT") {
             <?php } ?>
             以上の内容で更新しました。<br>
             <?php
-        }else{
-            echo 'データの更新に失敗しました。次記のエラーにより処理を中断します:'.$result;
+        }else{ // エラー文がある場合はその内容を表示する
+            echo 'データの更新に失敗しました。次のエラーにより処理を中断します:'.$result;
         }
     }
 }

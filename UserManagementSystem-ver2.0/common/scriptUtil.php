@@ -70,3 +70,7 @@ function bind_g2s($name){
         return null;
     }
 }
+// function ex_get_to_ses($name){
+//     $_SESSION[$name] = $_GET[$name];
+//     return $_GET[$name];
+//}

@@ -1,15 +1,14 @@
+<!-- todo 生年月日において存在しない日を選択できないようにする(例:平年の2月29日 など) -->
 <?php
 require_once '../common/defineUtil.php';
 require_once '../common/scriptUtil.php';
 require_once '../common/dbaccesUtil.php';
 session_start();
 
-// useridを格納
-$id = isset($_POST['userid']) ? $_POST['userid'] : null;
-// modeの情報を格納
-$mode = isset($_POST['mode']) ? $_POST['mode'] : null;
+$id   = isset($_POST['userid']) ? $_POST['userid'] : null; // useridを格納
+$mode = isset($_POST['mode']) ? $_POST['mode'] : null;     // modeの情報を格納
 
-// 不正アクセス対策
+// modeとidの値で不正アクセス対策
 if($mode != "UPDATE" && $mode != "REINPUT" && $id == null){
     echo 'アクセスルートが不正です。もう一度トップページからやり直してください';
     echo '<br><br>';
@@ -23,7 +22,9 @@ if($mode != "UPDATE" && $mode != "REINPUT" && $id == null){
 </head>
 <body>
 <?php
+    // 登録者のレコードを連想配列として受け取り格納
     $result = profile_detail($id);
+
     // 更新前の情報を変数に格納
     $ini_name     = $result[0]['name'];
     $ini_birthday = $result[0]['birthday'];
@@ -34,23 +35,23 @@ if($mode != "UPDATE" && $mode != "REINPUT" && $id == null){
     $ini_tell     = $result[0]['tell'];
     $ini_comment  = $result[0]['comment'];
 
-    // 修正 更新後の値をセッションに格納
-    $ud_name = form_value('ud_name');
-    $ud_year = form_value('ud_year');
-    $ud_month = form_value('ud_month');
-    $ud_day = form_value('ud_day');
-    $ud_type = form_value('ud_type');
-    $ud_tell = form_value('ud_tell');
+    // 更新後の値をセッションに格納しつつ変数にも格納する
+    $ud_name    = form_value('ud_name');
+    $ud_year    = form_value('ud_year');
+    $ud_month   = form_value('ud_month');
+    $ud_day     = form_value('ud_day');
+    $ud_type    = form_value('ud_type');
+    $ud_tell    = form_value('ud_tell');
     $ud_comment = form_value('ud_comment');
 
-    //セッションの中身を変数に格納する。
-    $ud_name = isset($ud_name) ? $ud_name : $ini_name;
-    $ud_year = isset($ud_year)? $ud_year : $ini_year;
-    $ud_month = isset($ud_month) ? $ud_month : $ini_month;
-    $ud_day = isset($ud_day) ? $ud_day : $ini_day;
-    $ud_type = isset($ud_type) ? $ud_type : $ini_type;
-    $ud_tell = isset($ud_tell) ? $ud_tell : $ini_tell;
-    $ud_comment = isset($ud_comment) ? $ud_comment : $ini_comment;
+    // 更新した値があればその値を、更新した値がなければ更新前の値を変数に格納する
+    $ud_name    = isset($ud_name) ? $ud_name : $ini_name; // todo 変数名
+    $ud_year    = isset($ud_year)? $ud_year : $ini_year; // todo 変数名
+    $ud_month   = isset($ud_month) ? $ud_month : $ini_month; // todo 変数名
+    $ud_day     = isset($ud_day) ? $ud_day : $ini_day; // todo 変数名
+    $ud_type    = isset($ud_type) ? $ud_type : $ini_type; // todo 変数名
+    $ud_tell    = isset($ud_tell) ? $ud_tell : $ini_tell; // todo 変数名
+    $ud_comment = isset($ud_comment) ? $ud_comment : $ini_comment; // todo 変数名
 ?>
 
     <!-- 修正 クエリストリングでuseridもつけて送る -->
@@ -114,14 +115,16 @@ if($mode != "UPDATE" && $mode != "REINPUT" && $id == null){
         <input type="hidden" name="type" value="<?php echo $ini_type; ?>">
         <input type="hidden" name="tell" value="<?php echo $ini_tell; ?>">
         <input type="hidden" name="comment" value="<?php echo $ini_comment; ?>">
+        <!-- 修正 変更結果画面への不正アクセス対策としてhiddenでmodeの値を送信 -->
         <input type="hidden" name="mode" value="UD_RESULT">
         <input type="submit" name="btnSubmit" value="以上の内容で更新を行う">
     </form>
-    <form action="<?php echo RESULT_DETAIL; ?>" method="POST">
-        <!-- 修正 詳細画面への不正アクセス対策としてhiddenでmodeの値を送信 -->
+    <form action="<?php echo RESULT_DETAIL; ?>" method="GET">
+        <!-- 修正 詳細画面への不正アクセス対策としてhiddenでmodeとidの値を送信 -->
+        <input type="hidden" name="userid" value="<?php echo $id; ?>">
         <input type="hidden" name="mode" value="RESULT_DETAIL">
         <input type="submit" name="NO" value="詳細画面に戻る"style="width:100px">
-    </form>
+    </form><br><br>
     <?php } ?>
     <?php echo return_top(); ?>
 </body>

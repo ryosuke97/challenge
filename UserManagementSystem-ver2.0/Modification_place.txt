@@ -1,0 +1,26 @@
+[search.php]の修正箇所
+    ◯見出し<h1>として「ユーザー情報検索画面」を追加
+    ◯名前、生年、種別の再入力時にそれぞれに値があったならば残して表示しておく
+    ◯トップページへのリンクの設置
+    ◯種別を指定しない検索を可能にするために「指定しない」のチェック項目を追加
+
+
+[search_result.php]の修正箇所
+    ◯スペルミス「serch_all_profiles()」→「search_all_profiles()」※dbaccesUtil.phpも同様に修正
+    ◯スペルミス「serch_profiles」→「search_profiles()」※dbaccesUtil.phpも同様に修正
+    ◯登録日時の表示で文末が「;;」でセミコロンが1つ余計だったものを「;」に修正
+    ◯トップページへのリンクの設置
+
+
+[result_detail.php]の修正箇所
+    ◯詳細情報が表示されない→カラム名「id」→「userid」に修正
+    ◯更新ページへのフォームのmethodをGETにし、hiddenでuseridを送るように修正
+
+
+[update.php]の修正箇所
+    ◯年月日のoptionタグ内の修正「checked」→「selected」
+
+
+
+
+生年検索ができない

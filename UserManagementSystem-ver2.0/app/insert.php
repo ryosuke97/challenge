@@ -1,3 +1,5 @@
+<!-- todo 登録における有効期限の実装 -->
+<!-- todo 生年月日において存在しない日を選択できないようにする(例:平年の2月29日 など) -->
 <?php require_once '../common/defineUtil.php'; ?>
 <?php require_once '../common/scriptUtil.php'; ?>
 <!DOCTYPE html>
@@ -53,11 +55,11 @@
         自己紹介文
         <br>
         <textarea name="comment" rows=10 cols=50 style="resize:none" wrap="hard"><?php echo form_value('comment'); ?></textarea><br><br>
-        
+
         <input type="hidden" name="mode"  value="CONFIRM">
         <input type="submit" name="btnSubmit" value="確認画面へ">
     </form>
-    
+
     <?php echo return_top(); ?>
 </body>
 </html>

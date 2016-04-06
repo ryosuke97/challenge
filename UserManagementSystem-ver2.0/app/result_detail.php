@@ -3,15 +3,18 @@
     require_once '../common/scriptUtil.php';
     require_once '../common/dbaccesUtil.php';
     session_start();
-    // useridを格納
-    $id = isset($_GET['userid']) ? $_GET['userid'] : null;
-    // modeの情報を格納
-    $mode = isset($_POST['mode']) ? $_POST['mode'] : "";
 
-    // 不正アクセス対策
+    $mode = isset($_POST['mode']) ? $_POST['mode'] : null;   // modeの情報を格納
+    $id   = isset($_GET['userid']) ? $_GET['userid'] : null; // useridを格納
+
+
+    // idとmodeの値によって不正アクセスの判別
     if($mode != 'RESULT_DETAIL' && $id == null){
-        echo 'アクセスルートが不正です。もう一度トップページからやり直してください<br>';
+        echo 'アクセスルートが不正です。もう一度トップページからやり直してください';
+        echo '<br><br>';
+    // RESULT_DETAILが送られてきた場合はゲットの値をセッションに格納 ! toDo 関数化 !
     }else{
+
     ?>
     <!DOCTYPE html>
     <html lang="ja">
@@ -41,12 +44,13 @@
         電話番号:<?php echo $d_tell;?><br>
         自己紹介:<?php echo $d_comment;?><br>
         登録日時:<?php echo date('Y年n月j日　G時i分s秒', strtotime($d_newdate)); ?><br>
+
         <form action="<?php echo UPDATE; ?>" method="POST">
             <!-- 修正 hiddenでuseridを更新ページへ送る -->
             <input type="hidden" name="userid" value="<?php echo $id; ?>">
             <input type="submit" name="update" value="変更"style="width:100px">
         </form>
-        <form action="<?php echo DELETE; ?>" method="POST">
+        <form action="<?php echo DELETE; ?>" method="GET">
             <input type="hidden" name="userid" value="<?php echo $id; ?>">
             <!-- 修正 削除画面への不正アクセス対策としてhiddenでmodeの値を送信 -->
             <input type="hidden" name="mode" value="DELETE">
@@ -59,7 +63,7 @@
             <input type="submit" name="NO" value="検索結果画面に戻る"style="width:120px">
         </form>
         <?php
-        }else{
+        }else{ // エラーの場合そのエラー文を表示する
             echo 'データの検索に失敗しました。次記のエラーにより処理を中断します:'.$result;
         }
     }

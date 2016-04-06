@@ -13,7 +13,7 @@
     if(!$_POST['mode']=="RESULT"){
         echo 'アクセスルートが不正です。もう一度トップページからやり直してください<br>';
     }else{
-        
+
         session_start();
         $name = $_SESSION['name'];
         //date型にするために1桁の月日を2桁にフォーマットしてから格納
@@ -24,7 +24,7 @@
 
         //データのDB挿入処理。エラーの場合のみエラー文がセットされる。成功すればnull
         $result = insert_profiles($name, $birthday, $type, $tell, $comment);
-        
+
         //エラーが発生しなければ表示を行う
         if(!isset($result)){
         ?>
@@ -40,7 +40,7 @@
             echo 'データの挿入に失敗しました。次記のエラーにより処理を中断します:'.$result;
         }
     }
-    echo return_top(); 
+    echo return_top();
     ?>
     </body>
 </html>
