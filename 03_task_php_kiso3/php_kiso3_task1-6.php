@@ -11,16 +11,15 @@
 <p style="font-weight: bold; font-size: 20px;">自分のプロフィール(名前、生年月日、自己紹介を3行に分けて表示するユーザー定義関数を作り、関数を10回呼び出して下さい</p>
 <?php
   // 自己紹介の関数
-  function myProfile() {
+  function myProfileTask1() {
     echo '名前： 山野良介' . '<br>';
     echo '生年月日： 1989/09/07' . '<br>';
     echo '自己紹介：よろしくお願いします' . '<br><br>';
-    return true;
   }
   // 自己紹介を10回呼び出す
   for ($i=0; $i < 10; $i++) {
     echo $i+1 . '回目' . '<br>';
-    myProfile();
+    myProfileTask1();
   }
 ?>
 <br><br><br><br>
@@ -48,11 +47,11 @@
 <h2>課題3</h2>
 <p style="font-weight: bold; font-size: 20px;">引き数が3つの関数を定義する。1つ目は適当な数値を、2つ目はデフォルト値が5の数値を、最後はデフォルト値がfalse(bool値)の$typeを引き数として定義する。1つ目の引き数に2つ目の引き数を掛ける計算をする関数を作成し、$typeがfalseの時はその値を表示、trueのときはさらに2乗して表示する。</p>
 <?php
-  $numY = 1;
-  $num5 = 5;
+  $numArg1 = 1;
+  $numArg2 = 3;
   $type = false;
   // bool値によって計算を変える関数
-  function culc($numA, $numB, $type){
+  function culc($numA, $numB = 5, $type = false){
     $result = $numA * $numB;
     if ($type == false) {
       echo $result;
@@ -61,7 +60,7 @@
     }
   }
   $type = true;
-  culc($numY, $num5, $type);
+  culc($numArg1, $numArg2, $type);
 ?>
 <br><br><br><br>
 <hr>
@@ -70,18 +69,30 @@
 <h2>課題4</h2>
 <p style="font-weight: bold; font-size: 20px;">課題1で定義した関数に追記する形として、戻り値　true(bool値)　を返却するように修正し、関数の呼び出し側でtrueを受け取れたら「この処理は正しく実行できました」、そうでないなら「正しく実行できませんでした」と表示する</p>
 <?php
-  // 自己紹介の変数
-  $myName = '山野良介';
-  $myBirthday = '1989/09/07';
-  $myIntro = 'よろしくお願いします!';
-  // 課題1の関数を$actFlugに格納
-  $actFlug = myProfile($myName, $myBirthday, $myIntro);
-  //bool値によって表示を変える
-  if ($actFlug === true) {
+  // 自己紹介の関数 引数が'山野良介'の場合はtrueをその他の場合はfalseを返す
+  function myProfileTask4($name) {
+    if ($name == '山野良介') {
+      echo '名前： 山野良介' . '<br>';
+      echo '生年月日： 1989/09/07' . '<br>';
+      echo '自己紹介： よろしくお願いします' . '<br><br>';
+      return true;
+    }else{
+      echo '該当する名前はありません<br><br>';
+      return false;
+    }
+  }
+  // 検索する名前を格納する
+  $my_name = '山野良介';
+
+  // 結果としてmyProfileTask4を格納
+  $result = myProfileTask4($my_name);
+  // returnの値によって表示を変える
+  if ($result == true) {
     echo 'この処理は正しく実行できました';
   } else {
     echo '正しく実行できませんでした';
   }
+
 ?>
 <br><br><br><br>
 <hr>
