@@ -1,0 +1,115 @@
+<!DOCTYpE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML課題</title>
+</head>
+<body>
+  <h1 align="center">ＨＴＭＬ基本タグ一覧</h1>
+<center>
+<table bgColor=#fff border=1>
+  <tbody>
+  <tr bgColor=#6398ff>
+    <th>機能</th>
+    <th>タグ</th>
+    <th>例</th>
+    <th>見え方</th>
+  </tr>
+  <tr align=middle>
+    <th>見出し文字</th>
+    <td>&lt;h1&gt;～&lt;/h1&gt;</td>
+    <td><p>（１が大、６が小。<br>自動的に改行される） </p>&lt;h1&gt;見出し１&lt;/h1&gt;<br>&lt;h3&gt;見出し３&lt;/h3&gt;<br>&lt;h6&gt;見出し６&lt;/h6&gt;</td>
+    <td bgColor=#aff5f9>
+      <h1>見出し１</h1>
+      <h3>見出し３</h3>
+      <h6>見出し６</h6></td>
+  </tr>
+  <tr align=middle>
+    <th>段　落</th>
+    <td>&lt;p&gt;～&lt;p&gt;</td>
+    <td>&lt;p&gt;こうすると&lt;/p&gt;段落が変わる</td>
+    <td bgColor=#aff5f9>こうすると 
+      <p>段落が変わる </p></td>
+  </tr>
+  <tr align=middle>
+    <th>罫線＋改行</th>
+    <td>&lt;hr&gt;</td>
+    <td>こうすると&lt;hr&gt;線を引いて改行</td>
+    <td bgColor=#aff5f9>こうすると 
+      <hr>
+      線を引いて改行</td>
+  </tr>
+  <tr align=middle>
+    <th>改行（小）</th>
+    <td>&lt;br&gt;</td>
+    <td>こうしないと&lt;br&gt;改行しない</td>
+    <td bgcolor=#aff5f9>こうしないと<br>改行しない</td>
+  </tr>
+  <tr align=middle>
+    <th>画像貼付け</th>
+    <td>&lt;img src="画像ファイル名"&gt;</td>
+    <td>&lt;img src="camp_logo.png"&gt;</td>
+    <td align=left bgColor=#aff5f9 style="padding:20px;"><IMG src="camp_logo.png"></td>
+  </tr>
+  <tr align=middle>
+    <th>リンク貼付け</th>
+    <td>&lt;a href="ファイル名"&gt;<br>ここがボタンになる。&lt;/a&gt;</td>
+    <td>&lt;a href="https://camp.geekjob.jp/"&gt;<br>GEEK JOB キャンプサイトへ&lt;/a&gt;</td>
+    <td bgColor=#aff5f9><a 
+      href="https://camp.geekjob.jp/" target="_blank">GEEK JOB キャンプサイトへ</a></td>
+  </tr>
+  <tr align=middle>
+    <th>テーブル(表)<br>（データセル）</th>
+    <td align=left>&lt;table 
+      border=2&gt;<br>　&lt;tr&gt;<br>　　&lt;td&gt;ここが表の中身&lt;/td&gt;<br>　&lt;/tr&gt;<br>&lt;/table&gt;</td>
+    <td align=left>&lt;table 
+      border=2&gt;<br>&lt;tr&gt;<br>　&lt;td&gt;一&lt;/td&gt;&lt;td&gt;石&lt;/td&gt;&lt;/tr&gt;<br>&lt;tr&gt;<br>　&lt;td&gt;二&lt;/td&gt;&lt;td&gt;鳥&lt;/td&gt;<br>&lt;/tr&gt;<br>&lt;/table&gt;</td>
+    <td bgColor=#aff5f9>
+      <table border=1>
+        <tbody>
+        <tr>
+          <td>一</td>
+          <td>石</td></tr>
+        <tr>
+          <td>二</td>
+          <td>鳥</td></tr></tbody></table></td>
+  </tr>
+  <tr align=middle>
+    <th>テーブル(表)<br>（見出しセル）</th>
+    <td align=left>&lt;table 
+      border=10&gt;<br>　&lt;tr&gt;<br>　　&lt;tｈ&gt;ここが表の中身&lt;/tｈ&gt;<br>　&lt;/tr&gt;<br>&lt;/table&gt;</td>
+    <td align=left>&lt;table 
+      border=10&gt;<br>&lt;tr&gt;<br>　&lt;th&gt;川崎&lt;/th&gt;&lt;th&gt;横浜&lt;/th&gt;<br>&lt;/tr&gt;<br>&lt;tr&gt;<br>　&lt;th&gt;相模原&lt;/th&gt;&lt;th&gt;他&lt;/th&gt;<br>&lt;/tr&gt;<br>&lt;/table&gt;</td>
+    <td bgColor=#aff5f9>
+      <table border=1>
+        <tbody>
+        <tr>
+          <th>川崎</th>
+          <th>横浜</th></tr>
+        <tr>
+          <th>相模原</th>
+          <th>他</th></tr></tbody></table></td>
+  </tr>
+  <tr align=middle>
+    <th>箇条書き</th>
+    <td 
+      align=left>&lt;ul&gt;<br>　&lt;li&gt;１番目の内容<br>　&lt;li&gt;２番目の内容<br>&lt;/ul&gt;</td>
+    <td 
+      align=left>&lt;ul&gt;<br>　&lt;li&gt;千代田区<br>　　&lt;ol&gt;<br>　　&lt;li&gt;小学校<br>　　&lt;li&gt;中学校<br>　　&lt;/ol&gt;<br>　&lt;li&gt;新宿区<br>　&lt;li&gt;文京区<br>&lt;/ul&gt;</td>
+    <td align=left bgColor=#aff5f9>
+      <ul>
+        <li>千代田区
+        <ol>
+          <li>小学校
+          <li>中学校</li></ol>
+        <li>新宿区
+        <li>文京区</li></ul></td>
+  </tr>
+  </tbody>
+  </table>
+  </center>
+  <br><br>
+
+
+</body>
+</html>
